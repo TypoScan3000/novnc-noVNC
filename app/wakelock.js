@@ -4,7 +4,7 @@
  * Licensed under MPL 2.0 or any later version (see LICENSE.txt)
  *
  * Wrapper around the `navigator.wakeLock` api that handles reacquiring the
- * lock on visiblility changes.
+ * lock on visibility changes.
  *
  * The `acquire` and `release` methods may be called any number of times. The
  * most recent call dictates the desired end-state (if `acquire` was most
@@ -19,7 +19,7 @@ const _STATES = {
      * Can transition to:
      *  - AWAITING_VISIBLE: `acquire` called when document is hidden.
      *  - ACQUIRING: `acquire` called.
-     *  - ERROR: `acquired` called when the api is not available.
+     *  - ERROR: `acquire` called when the api is not available.
      */
     RELEASED: 'released',
     /* Wake lock requested, waiting for browser.
@@ -114,7 +114,7 @@ export default class WakeLockManager extends EventTarget {
             case _STATES.ACQUIRING_WANT_RELEASE:
                 break;
             case _STATES.ACQUIRING:
-                // We are have requested (but not yet received) the wakelock.
+                // We have requested (but not yet received) the wakelock.
                 // Give it up as soon as we acquire it.
                 this._transitionTo(_STATES.ACQUIRING_WANT_RELEASE);
                 break;

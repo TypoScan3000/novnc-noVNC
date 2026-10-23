@@ -79,7 +79,7 @@ export default class HextileDecoder {
             sock.rQshift8();
             if (subencoding === 0) {
                 if (this._lastsubencoding & 0x01) {
-                    // Weird: ignore blanks are RAW
+                    // Weird: ignore blanks after RAW
                     Log.Debug("     Ignoring blank after RAW");
                 } else {
                     display.fillRect(tx, ty, tw, th, this._background);
