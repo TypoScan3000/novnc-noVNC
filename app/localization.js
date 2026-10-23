@@ -69,7 +69,7 @@ export class Localizer {
                 return;
             }
 
-            // Third pass pass: other fallback
+            // Third pass: other fallback
             for (let j = 0;j < supportedLanguages.length;j++) {
                 const supLang = supportedLanguages[j]
                     .toLowerCase()
